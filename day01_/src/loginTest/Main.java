@@ -23,8 +23,7 @@ public class Main {
 		//3.나가기
 		
 		User[] Users = new User[4];
-		User ur = new User();
-		int i = 0;
+		User u = new User();
 		
 		while(true) {
 			System.out.println("원하는 절차 입력");
@@ -36,17 +35,19 @@ public class Main {
 				System.out.println("회원 가입을 시작합니다.");
 				
 				System.out.println("이름");
-				ur.setName(sc.nextLine());
+				u.setName(sc.nextLine());
 				
 				System.out.println("사용할 아이디");
-				ur.setId(sc.nextLine());
+				u.setId(sc.nextLine());
 				
 				System.out.println("사용할 비밀번호");
-				ur.setPw(sc.nextLine());
+				u.setPw(sc.nextLine());
 				
-				for(i =0; i<Users.length; i++) {
+				
+				
+				for(int i =0; i<Users.length; i++) {
 					if(Users[i] == null) {
-						Users[i]  = ur;
+						Users[i]  = u;
 						break;
 					}
 					
@@ -59,14 +60,32 @@ public class Main {
 				System.out.println("비밀번호 입력");
 				String check_pw = sc.nextLine();
 				
-				while(i< Users.length) {
-					
-					if(Users[i].getId().equals(check_id)  && Users[i].getPw().equals(check_pw)) {
-						System.out.println("로그인 완료" + ur.getName()+"님 환영합니다.");
-					}	
-					i++;
-				}
 				
+				int i = 0;
+				
+				while(i<Users.length) {
+					if(Users[i].getId().equals(check_id)) {
+						if(Users[i].getPw().equals(check_pw)) {
+							System.out.println("로그인 성공");
+							break;
+						}
+						
+					}else if (!(Users[i].getId().equals(check_id))) {
+						if(!(Users[i].getPw().equals(check_pw)))
+						i++;
+					}
+				}
+		
+		
+				
+				
+//					if(u.getId().equals(check_id)  && u.getPw().equals(check_pw)) {
+//						System.out.println("로그인 완료" + u.getName()+"님 환영합니다.");
+//					}else if(!(u.getId().equals(check_id)  && u.getPw().equals(check_pw)))	{
+//						System.out.println("로그인 실패");}
+					
+				
+			
 			}else if(choice ==3) {
 				System.out.println("프로그램 종료");
 				break;

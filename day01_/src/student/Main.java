@@ -37,11 +37,11 @@ public class Main {
 				new Student("홍길동", 50,70,60)
 				};
 		
-		students[0].show();
+		students[0].getMath();
 		students[1].show();
 		students[2].show();
 		
-		
+		System.out.println(students[1].getName().equals(students[2].getName().equals(students)));
 		
 	}
 	
